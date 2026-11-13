@@ -276,6 +276,24 @@ module cache_tb;
         $display("Random trace: hits = %0d, misses = %0d",
                  hit_count - h0, miss_count - m0);
 
+                    
+            // ================= TRACE 4: RANDOM, 1 KB RANGE =================
+
+            $display("\n=== TRACE 4: RANDOM READS, 1 KB RANGE (50 accesses) ===");
+
+            h0 = hit_count;
+            m0 = miss_count;
+
+            for (i = 0; i < 50; i = i + 1) begin
+                rand_addr = $random;
+                rand_addr = rand_addr & 32'h000003F0;
+                send_request(0, rand_addr, 128'h0);
+            end
+
+            $display("Trace 4: hits = %0d, misses = %0d",
+                    hit_count - h0, miss_count - m0);
+
+
         // ================= FINAL REPORT =================
         miss_rate = (read_miss_count * 1.0) / (read_hit_count + read_miss_count);
         amat = hit_latency + miss_rate * (miss_latency - hit_latency);
