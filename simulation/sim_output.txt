@@ -1,0 +1,253 @@
+VCD info: dumpfile cache_wave.vcd opened for output.
+--------------------------------
+DIRECT MAPPED CACHE TEST START
+--------------------------------
+
+TEST 1: First read
+CACHE MISS: Address = 00000010, Latency = 7 cycles
+CPU Read Data = 00000000000000000000000000000000
+
+TEST 2: Repeated read
+CACHE HIT: Address = 00000010, Latency = 4 cycles
+CPU Read Data = 00000000000000000000000000000000
+
+TEST 3: Write request
+CACHE MISS: Address = 00000020, Latency = 4 cycles
+CPU Read Data = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+TEST 4: Read after write
+CACHE MISS: Address = 00000020, Latency = 7 cycles
+CPU Read Data = 123456789abcdef0123456789abcdef0
+PASS: Written data read correctly
+
+TEST 5: Write hit
+CACHE HIT: Address = 00000010, Latency = 4 cycles
+CPU Read Data = aaaaaaaa11111111bbbbbbbb22222222
+
+TEST 6: Verify updated data
+CACHE HIT: Address = 00000010, Latency = 4 cycles
+CPU Read Data = aaaaaaaa11111111bbbbbbbb22222222
+PASS: Write hit verified
+
+TEST 7: Address conflict
+CACHE MISS: Address = 00000410, Latency = 7 cycles
+CPU Read Data = 00000000000000000000000000000000
+
+TEST 8: Repeat conflicting address
+CACHE HIT: Address = 00000410, Latency = 4 cycles
+CPU Read Data = 00000000000000000000000000000000
+
+TEST 9: Access original address
+CACHE MISS: Address = 00000010, Latency = 7 cycles
+CPU Read Data = aaaaaaaa11111111bbbbbbbb22222222
+
+=== TRACE 1: SEQUENTIAL (16 consecutive words) ===
+CACHE MISS: Address = 00000100, Latency = 7 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE HIT: Address = 00000104, Latency = 4 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE HIT: Address = 00000108, Latency = 4 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE HIT: Address = 0000010c, Latency = 4 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE MISS: Address = 00000110, Latency = 7 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE HIT: Address = 00000114, Latency = 4 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE HIT: Address = 00000118, Latency = 4 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE HIT: Address = 0000011c, Latency = 4 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE MISS: Address = 00000120, Latency = 7 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE HIT: Address = 00000124, Latency = 4 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE HIT: Address = 00000128, Latency = 4 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE HIT: Address = 0000012c, Latency = 4 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE MISS: Address = 00000130, Latency = 7 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE HIT: Address = 00000134, Latency = 4 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE HIT: Address = 00000138, Latency = 4 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE HIT: Address = 0000013c, Latency = 4 cycles
+CPU Read Data = 00000000000000000000000000000000
+Sequential trace: hits = 12, misses = 4 (expected 12 hits, 4 misses)
+
+=== TRACE 2: CONFLICT (0x30 and 0x430 alternate) ===
+CACHE MISS: Address = 00000030, Latency = 7 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE MISS: Address = 00000430, Latency = 7 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE MISS: Address = 00000030, Latency = 7 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE MISS: Address = 00000430, Latency = 7 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE MISS: Address = 00000030, Latency = 7 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE MISS: Address = 00000430, Latency = 7 cycles
+CPU Read Data = 00000000000000000000000000000000
+Conflict trace: hits = 0, misses = 6 (expected all misses)
+
+=== TRACE 3: RANDOM (20 accesses, ~25% writes) ===
+CACHE MISS: Address = 00000520, Latency = 7 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE MISS: Address = 00000460, Latency = 7 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE MISS: Address = 000007e0, Latency = 4 cycles
+CPU Read Data = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CACHE MISS: Address = 000007e0, Latency = 7 cycles
+CPU Read Data = 7cfde9f9e33724c6e2f784c5d513d2aa
+CACHE MISS: Address = 000002e0, Latency = 7 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE MISS: Address = 00000260, Latency = 7 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE MISS: Address = 00000690, Latency = 7 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE MISS: Address = 00000200, Latency = 7 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE MISS: Address = 000002c0, Latency = 4 cycles
+CPU Read Data = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CACHE MISS: Address = 00000370, Latency = 7 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE MISS: Address = 000002b0, Latency = 7 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE MISS: Address = 00000030, Latency = 7 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE MISS: Address = 00000760, Latency = 4 cycles
+CPU Read Data = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CACHE HIT: Address = 00000690, Latency = 4 cycles
+CPU Read Data = adcbc05b44de3789a4ae3249e8233ed0
+CACHE MISS: Address = 000000d0, Latency = 7 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE MISS: Address = 00000270, Latency = 7 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE MISS: Address = 00000710, Latency = 7 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE MISS: Address = 00000630, Latency = 7 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE MISS: Address = 000001f0, Latency = 7 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE MISS: Address = 00000650, Latency = 4 cycles
+CPU Read Data = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+Random trace: hits = 1, misses = 19
+
+=== TRACE 4: RANDOM READS, 1 KB RANGE (50 accesses) ===
+CACHE MISS: Address = 00000120, Latency = 7 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE HIT: Address = 000002e0, Latency = 4 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE HIT: Address = 000000d0, Latency = 4 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE HIT: Address = 00000260, Latency = 4 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE HIT: Address = 000002b0, Latency = 4 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE HIT: Address = 000000d0, Latency = 4 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE MISS: Address = 00000170, Latency = 7 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE MISS: Address = 00000340, Latency = 7 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE HIT: Address = 000000d0, Latency = 4 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE MISS: Address = 00000320, Latency = 7 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE MISS: Address = 000001a0, Latency = 7 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE MISS: Address = 00000300, Latency = 7 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE MISS: Address = 000001d0, Latency = 7 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE MISS: Address = 00000090, Latency = 7 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE MISS: Address = 000002f0, Latency = 7 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE MISS: Address = 000002c0, Latency = 7 cycles
+CPU Read Data = 7968bdf2452e618a20c4b341ec4b34d8
+CACHE MISS: Address = 00000150, Latency = 7 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE MISS: Address = 00000140, Latency = 7 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE HIT: Address = 00000260, Latency = 4 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE MISS: Address = 00000000, Latency = 7 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE MISS: Address = 000001b0, Latency = 7 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE MISS: Address = 00000230, Latency = 7 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE HIT: Address = 00000370, Latency = 4 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE MISS: Address = 000000b0, Latency = 7 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE MISS: Address = 00000390, Latency = 7 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE MISS: Address = 00000190, Latency = 7 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE HIT: Address = 00000000, Latency = 4 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE MISS: Address = 00000250, Latency = 7 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE HIT: Address = 000001d0, Latency = 4 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE MISS: Address = 00000240, Latency = 7 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE MISS: Address = 000003d0, Latency = 7 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE HIT: Address = 00000260, Latency = 4 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE HIT: Address = 00000270, Latency = 4 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE MISS: Address = 000001c0, Latency = 7 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE HIT: Address = 000001b0, Latency = 4 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE HIT: Address = 00000190, Latency = 4 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE HIT: Address = 00000240, Latency = 4 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE HIT: Address = 00000300, Latency = 4 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE HIT: Address = 000001f0, Latency = 4 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE MISS: Address = 00000360, Latency = 7 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE HIT: Address = 000002b0, Latency = 4 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE MISS: Address = 00000180, Latency = 7 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE HIT: Address = 00000120, Latency = 4 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE HIT: Address = 00000020, Latency = 4 cycles
+CPU Read Data = 123456789abcdef0123456789abcdef0
+CACHE MISS: Address = 000000c0, Latency = 7 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE HIT: Address = 00000020, Latency = 4 cycles
+CPU Read Data = 123456789abcdef0123456789abcdef0
+CACHE HIT: Address = 00000000, Latency = 4 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE HIT: Address = 00000110, Latency = 4 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE HIT: Address = 000002f0, Latency = 4 cycles
+CPU Read Data = 00000000000000000000000000000000
+CACHE HIT: Address = 00000320, Latency = 4 cycles
+CPU Read Data = 00000000000000000000000000000000
+Trace 4: hits = 25, misses = 25
+
+--------------------------------
+TEST SUMMARY
+Total hits   = 42
+Total misses = 59
+Read hits    = 40
+Read misses  = 54
+Hit latency  = 4 cycles
+Miss latency = 7 cycles
+Read miss rate = 0.574468
+AMAT = 5.723404 cycles
+Checks passed = 103, failed = 0
+ALL CHECKS PASSED
+--------------------------------
+testbench/cache_tb.v:319: $finish called at 8730000 (1ps)
