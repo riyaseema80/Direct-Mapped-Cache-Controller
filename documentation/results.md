@@ -18,7 +18,7 @@ The simulation uses:
 |---|---:|---:|---:|---:|
 | Trace 1: Sequential | 16 | 12 | 75% | 4.75 cycles |
 | Trace 2: Conflict | 6 | 0 | 0% | 7.00 cycles |
-| Trace 3: Random (2 KB) | 20 | 1 | 5% | 6.85 cycles |
+| Trace 3: Random (2 KB) | 15 | 0 | 0% | 7.00 cycles |
 | Trace 4: Random (1 KB) | 50 | 25 | 50% | 5.50 cycles |
 
 ## 3. Trace Analysis
@@ -46,11 +46,12 @@ They continuously replace each other, resulting in
 conflict misses on every access.
 
 ### Trace 3: Random Access (2 KB)
-- Total reads: 20
-- Read hits: 1
-- Read misses: 19
-- Hit rate: 5%
+- Total reads: 15
+- Read hits: 0
+- Read misses: 15
+- Hit rate: 0%
 
+The only hit in this trace was a write hit, which is not counted in the read hit rate.
 Random accesses across a larger address range have
 low temporal locality. Most accesses result in misses
 because previously loaded cache blocks are not reused.
@@ -82,7 +83,7 @@ Where:
 
 - Trace 1: 4 + (1 - 0.75) × 3 = 4.75 cycles
 - Trace 2: 4 + (1 - 0.00) × 3 = 7.00 cycles
-- Trace 3: 4 + (1 - 0.05) × 3 = 6.85 cycles
+- Trace 3: 4 + (1 - 0.00) × 3 = 7.00 cycles
 - Trace 4: 4 + (1 - 0.50) × 3 = 5.50 cycles
 
 ## 5. Overall Simulation Summary
